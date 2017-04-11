@@ -53,4 +53,24 @@ class MathTests extends FunSuite {
   test("sqrt(2) ~= 1.41421356237") {
     assert(isCloseEnough(sqrt(2), 1.41421356237))
   }
+
+  test("sum") {
+    assert(sum(x => x)(0, 0) === 0)
+    assert(sum(x => x)(1, 10) === 55)
+    assert(sum(x => x * 2)(1, 10) === 110)
+    assert(sum(x => x * x)(3, 5) === 50)
+  }
+
+  test("product") {
+    assert(product(x => x)(3, 5) === 60)
+    assert(product(x => x * x)(3, 5) === 3600)
+    assert(product(x => x * x * x)(1, 4) === 13824)
+  }
+
+  test("factorial") {
+    assert(fact(0) === 1)
+    assert(fact(1) === 1)
+    assert(fact(5) === 120)
+    assert(fact(8) === 40320)
+  }
 }

@@ -1,2 +1,8 @@
 # IntelliJ
 .idea
+
+# Scala
+*.class
+*.log
+scala/target
+scala/project

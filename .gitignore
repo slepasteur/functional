@@ -6,3 +6,6 @@
 *.log
 scala/target
 scala/project
+
+# CMake
+cmake-build-debug

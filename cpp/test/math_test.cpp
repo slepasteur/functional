@@ -55,3 +55,28 @@ TEST_CASE("sqrt(2) ~= 1.41421356237")
 {
 	REQUIRE(isCloseEnough(functional::math::sqrt(2), 1.41421356237));
 }
+
+TEST_CASE("sum")
+{
+	using functional::math::identity;
+	REQUIRE(sum(identity<int>)(0, 0) == 0);
+	REQUIRE(sum(identity<int>)(1, 10) == 55);
+	REQUIRE(sum([](int x) { return x * 2; })(1, 10) == 110);
+	REQUIRE(sum([](int x) { return x * x; })(3, 5) == 50);
+}
+
+TEST_CASE("product")
+{
+	using functional::math::identity;
+	REQUIRE(product(identity<int>)(3, 5) == 60);
+	REQUIRE(product([](int x){ return x * x; })(3, 5) == 3600);
+	REQUIRE(product([](int x){ return x * x * x; })(1, 4) == 13824);
+}
+
+TEST_CASE("factorial")
+{
+	REQUIRE(fact(0) == 1);
+	REQUIRE(fact(1) == 1);
+	REQUIRE(fact(5) == 120);
+	REQUIRE(fact(8) == 40320);
+}
